@@ -64,7 +64,6 @@ let inventory = [{"id":1,"car_make":"Lincoln","car_model":"Navigator","car_year"
 // ==== Challenge 1 ====
 // The dealer can't recall the information for a car with an id of 33 on his lot. Help the dealer find out which car has an id of 33 by logging the car's year, make, and model in the console log provided to you below:
 console.log(`Car 33 is a ${inventory[33 - 1]["car_year"]} ${inventory[33 - 1]["car_make"]} ${inventory[33 - 1]["car_model"]}`);
-
 console.log("");
 
 // ==== Challenge 2 ====
@@ -82,6 +81,10 @@ for (let i = 0; i < inventory.length; i++) {
 };
 carModels.sort();
 console.log(carModels);
+
+let carModelsAlso = inventory.map(item => item["car_model"]).sort();
+console.log("\nAlso:")
+console.log(carModelsAlso);
 console.log("");
 
 // ==== Challenge 4 ====
@@ -91,6 +94,10 @@ for (let i = 0; i < inventory.length; i++) {
     carYears.push(inventory[i]["car_year"]);
 };
 console.log(carYears);
+
+let carYearsAlso = inventory.map(item => item["car_year"]);
+console.log("\nAlso:")
+console.log(carYearsAlso);
 console.log("");
 
 // ==== Challenge 5 ====
@@ -101,7 +108,11 @@ for (let i = 0; i < carYears.length; i++) {
         oldCars.push(carYears[i])
         }
     };
-console.log(oldCars.length); 
+console.log(oldCars.length);
+
+let oldCarsAlso = carYearsAlso.filter(year => year < 2000);
+console.log("\nAlso:")
+console.log(oldCarsAlso.length);
 console.log("");
 
 // ==== Challenge 6 ====
@@ -113,12 +124,11 @@ for (let i = 0; i < inventory.length; i++) {
         BMWAndAudi.push(inventory[i])
     }
 };
+console.log(JSON.stringify(BMWAndAudi));
 
 const makeTest = function(item) {
     return item["car_make"] === "BMW" || item["car_make"] === "Audi";
 }
 let BMWAndAudiAlso = inventory.filter(makeTest);
-
-console.log(JSON.stringify(BMWAndAudi));
-
+console.log("\nAlso:")
 console.log(JSON.stringify(BMWAndAudiAlso));
